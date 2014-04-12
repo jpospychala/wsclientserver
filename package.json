@@ -1,0 +1,8 @@
+{
+  "name": "wsclientserver",
+  "main": "index.js",
+  "dependencies": {
+    "ws": "^0.4.31",
+    "prettysize": "0.0.3"
+  }
+}
