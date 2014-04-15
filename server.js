@@ -1,8 +1,13 @@
+var fs = require('fs');
+var https = require('https');
 var wsServer = require('ws').Server;
-var httpServer = require('http').createServer();
 var prettysize = require('prettysize');
-httpServer.listen(8082);
 
+var httpServer = https.createServer({
+  key: fs.readFileSync('keys/key.pem'),
+  cert: fs.readFileSync('keys/cert.pem')
+});
+httpServer.listen(8082);
 var ws = new wsServer({server: httpServer});
 
 var clientsCount = 0;
